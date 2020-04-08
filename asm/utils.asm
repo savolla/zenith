@@ -2,7 +2,7 @@
 ;;
 ;;	@file:			utils.asm
 ;;
-;;	@author: 		Oleksiy Nehlyadyuk
+;;	@author:		savolla
 ;;
 ;;  @date:			Edited at 07.04.2020
 ;;

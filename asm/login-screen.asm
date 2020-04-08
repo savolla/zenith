@@ -2,7 +2,7 @@
 ;;
 ;;  @file:          login-screen.asm
 ;;
-;;  @author:        Oleksiy Nehlyadyuk
+;;  @author:        savolla
 ;;
 ;;  @date:          Edited at 07.04.2020
 ;;
@@ -47,7 +47,7 @@ jmp $								;; think like system("pause"). see: D.02
 
 
 ;# VARIABLES #
-str_welcome: db "TurkOS'e Hos Geldiniz", 0x0
+str_welcome: db "zenith glances on you with foggy eyes", 0x0
 str_username: db "username: ", 0x0
 str_password: db "password: ", 0x0
 

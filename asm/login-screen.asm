@@ -47,9 +47,9 @@ jmp $								;; think like system("pause"). see: D.02
 
 
 ;# VARIABLES #
-str_welcome: db "zenith glances on you with foggy eyes", 0x0
-str_username: db "username: ", 0x0
-str_password: db "password: ", 0x0
+str_welcome: db "zenith glances at you with its foggy eyes", 0x0
+str_username: db "name: ", 0x0
+str_password: db "key : ", 0x0
 
 times 510 - ( $ - $$ ) db 0
 dw 0xaa55							;; end of boot sector. see D.03

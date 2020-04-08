@@ -69,8 +69,9 @@ sudo dd status=progress if=zenith of=/path/to/my/flash/drive
 ```
 
 4. open your BIOS settings and configure it to boot from a flash drive
-5. restart. you should see a black screen with welcome message.
+5. restart. you should see something like this:
 
+<img src="./screenshot01.png">
 
 
 

@@ -1,7 +1,7 @@
 zenith
 ======
 
-![](./zenith-logo.png){ width=33% }
+<img src="./zenith-logo.png" width="333" height="333">
 
 a tiny operating system that runs on x86 processor
 

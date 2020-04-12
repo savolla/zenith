@@ -4,7 +4,7 @@
 ;;
 ;;	@author:		savolla
 ;;
-;;  @date:			Edited at 07.04.2020
+;;  @date:			Edited at 12.04.2020
 ;;
 ;;	@desciption:	this file contains various utility functions
 ;;

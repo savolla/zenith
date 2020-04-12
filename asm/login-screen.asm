@@ -1,12 +1,12 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
-;;  @file:          login-screen.asm
+;;  @file:			login-screen.asm
 ;;
-;;  @author:        savolla
+;;  @author:		savolla
 ;;
-;;  @date:          Edited at 07.04.2020
+;;  @date:			Edited at 12.04.2020
 ;;
-;;  @desciption:    creates a simple tty logic screen where user enters his username and
+;;  @desciption:	creates a simple tty logic screen where user enters his username and
 ;;					password.
 ;;					
 ;;  @warning:		this is just a hello world code. things	will get more clear when I

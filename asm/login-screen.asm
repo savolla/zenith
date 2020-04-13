@@ -17,41 +17,18 @@
 
 [org 0x7c00]						;; magic number. see: D.01
 
-;; print( "zenith glances at you with its foggy eyes\n" );
-mov bx, banner						;; load bx with address of str_welcome variable
-call print_nl						;; print str_welcome to the tty
-
-;; print( "name:" );
-mov bx, str_username				;; load bx with string's address 
-call print							;; execute
-
-;; input()
-call get_one_line_input				;; execute
-
-;; print( "key:" );
-mov bx, str_password				;; p0: load bx with string's address
-call print							;; execute
-
-;; input()
-call get_one_line_input				;; let user to input his/her password
-
 ;; load_from_disk();
 mov cl, 0x02						;; p0: from which sector we want to start reading
-mov al, 0x01                        ;; p1: how many sectors to read
+mov al, 0x05                        ;; p1: how many sectors to read
 call load_into_memory				;; execute
 
-call new_memory_test				;; after loading the new sector
+call main
 
 jmp $								;; think like system("pause"). see: D.02
 
 %include "utils.asm"				;; includes useful utility functions from utils.asm
 
-;; real banner.. but boot sector can't handle that (yet :))
-;; banner: 
-;; 		db " ▄▄▄▄▄▄   ▄███▄      ▄   ▄█    ▄▄▄▄▀ ▄  █ ", 0x0a, 0x0d, "▀   ▄▄▀   █▀   ▀      █  ██ ▀▀▀ █   █   █ ", 0x0a, 0x0d, " ▄▀▀   ▄▀ ██▄▄    ██   █ ██     █   ██▀▀█ ", 0x0a, 0x0d, " ▀▀▀▀▀▀   █▄   ▄▀ █ █  █ ▐█    █    █   █ ", 0x0a, 0x0d, "          ▀███▀   █  █ █  ▐   ▀        █  ", 0x0a, 0x0d, "                  █   ██              ▀   ", 0x00
  
-
-banner: db "zenith glances at you with its foggy eyes", 0x0
 str_username: db "name: ", 0x0
 str_password: db "key : ", 0x0
 second_sector_message:
@@ -60,12 +37,33 @@ second_sector_message:
 
 times 510 - ( $ - $$ ) db 0x0		;; padding with zeros to make file 512 bytes
 dw 0xaa55							;; end of boot sector. (see D.03)
+;; END OF BOOT SECTOR !!
 
-new_memory_test:
-	mov bx, second_sector_message
-	call print
+banner: 
+	db "               _ __  __", 0x0a, 0x0d, " ___ ___ ___  (_) /_/ /", 0x0a, 0x0d, "/_ // -_) _ \/ / __/ _ \", 0x0a, 0x0d, "/__/\__/_//_/_/\__/_//_/", 0x0a, 0x0d, 0x0
 
-times 512 db 0x0
+main:
+	;; print( banner );
+	mov bx, banner						;; load bx with address of str_welcome variable
+	call print_nl						;; print str_welcome to the tty
+
+	;; print( "name:" );
+	mov bx, str_username				;; load bx with string's address 
+	call print							;; execute
+
+	;; input()
+	call get_one_line_input				;; execute
+
+	;; print( "key:" );
+	mov bx, str_password				;; p0: load bx with string's address
+	call print							;; execute
+
+	;; input()
+	call get_one_line_input				;; let user to input his/her password
+
+	jmp $
+
+times 2560 db 0x0
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

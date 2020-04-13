@@ -17,22 +17,30 @@
 
 [org 0x7c00]						;; magic number. see: D.01
 
+;; print( "zenith glances at you with its foggy eyes\n" );
 mov bx, banner						;; load bx with address of str_welcome variable
 call print_nl						;; print str_welcome to the tty
 
+;; print( "name:" );
+mov bx, str_username				;; load bx with string's address 
+call print							;; execute
 
-mov bx, str_username				;; load bx with address of str_username variable
-call print							;; print str_welcome to the tty
-call get_one_line_input				;; let user to input his/her username
+;; input()
+call get_one_line_input				;; execute
 
+;; print( "key:" );
+mov bx, str_password				;; p0: load bx with string's address
+call print							;; execute
 
-mov bx, str_password				;; load bx with address of str_password variable
-call print							;; print banner to the tty
+;; input()
 call get_one_line_input				;; let user to input his/her password
 
-mov cl, 0x02						;; from which sector we want to start reading
-mov al, 0x01                        ;; how many sectors to read
-call load_into_memory
+;; load_from_disk();
+mov cl, 0x02						;; p0: from which sector we want to start reading
+mov al, 0x01                        ;; p1: how many sectors to read
+call load_into_memory				;; execute
+
+call new_memory_test				;; after loading the new sector
 
 jmp $								;; think like system("pause"). see: D.02
 
@@ -53,9 +61,9 @@ second_sector_message:
 times 510 - ( $ - $$ ) db 0x0		;; padding with zeros to make file 512 bytes
 dw 0xaa55							;; end of boot sector. (see D.03)
 
-
-mov bx, second_sector_message
-call print
+new_memory_test:
+	mov bx, second_sector_message
+	call print
 
 times 512 db 0x0
 

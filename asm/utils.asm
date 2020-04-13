@@ -154,9 +154,9 @@ load_into_memory:
 			mov dl, 0x80				;; read from Hard Disk (see D.02)
 
 			;; code to write to RAM
-			mov bx, 0					;; prepare a value for extra segment (es)
+			mov bx, 0x0					;; prepare a value for extra segment (es)
 			mov es, bx					;; load extra segment (es) with zero
-			mov bx, 0x7c00 + 0x200      ;; write data from hdd into address 0x7e00 (see D.04)
+			mov bx, 0x7c00 + 0x200  	    ;; write data from hdd into address 0x7e00 (see D.04)
 		int 0x13						;; execute (mendatory)
 	popa								;; restore all registers from stack
 	ret

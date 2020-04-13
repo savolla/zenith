@@ -1,7 +1,7 @@
-zenith
+hayvan
 ======
 
-<img src="./zenith-logo.png" width="333" height="333">
+<img src="./hayvan-logo.png" width="333" height="333">
 
 a tiny operating system that runs on x86 processor
 
@@ -31,22 +31,22 @@ installation
 
 - build it with
 ```
-make zenith
+make hayvan
 ```
 
 run in emulator
 ------------
 
-if you want to run **zenith** on an emulated environment, do the following:
+if you want to run **hayvan** on an emulated environment, do the following:
 
 ```
-qemu zenith
+qemu hayvan
 ```
 
 if above command doesn't work try that one:
 
 ```
-qemu-system-x86_64 zenith
+qemu-system-x86_64 hayvan
 ```
 
 running on a real hardware
@@ -62,10 +62,10 @@ sudo lsblk
 
 it's probably **/dev/sdb**
 
-3. use **dd** command to flash zenith into your drive
+3. use **dd** command to flash hayvan into your drive
 
 ```
-sudo dd status=progress if=zenith of=/path/to/my/flash/drive
+sudo dd status=progress if=hayvan of=/path/to/my/flash/drive
 ```
 
 4. open your BIOS settings and configure it to boot from a flash drive
